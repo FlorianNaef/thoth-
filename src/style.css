@@ -51,18 +51,19 @@ body {
   height: 24px;
   margin: 2em 2em 0 0;
   background: transparent;
+  color: var(--fg);
   border: none;
   cursor: pointer;
-}
-
-.content-toggle {
-  color: var(--fg);
 }
 
 .theme-toggle {
   background: var(--themeIcon) no-repeat;
   background-size: contain;
   filter: grayscale(100%);
+}
+
+.content-toggle {
+  display: none;
 }
 
 .container {
@@ -72,6 +73,7 @@ body {
 }
 
 .content-container {
+  display: none;
   width: 100%;
   height: calc(100vh - 80px);
   margin-bottom: 40px;
@@ -89,13 +91,11 @@ body {
 }
 
 .feed-item h3 {
-  margin: 0;
   text-decoration: none;
   color: var(--fg);
 }
 
 .feed-item p {
-  margin: 5px 0;
   color: var(--sfg);
 }
 
