@@ -8,6 +8,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 </svg>
   </button>
   <button type="button" id="themeToggleButton" class="header-button theme-toggle"></button>
+  <button type="button" id="visibilityToggleButton" class="header-button visibility-toggle"></button>
 </header>
 <div class="container">
   <div id="contentContainer" class="content-container"></div>
@@ -23,9 +24,17 @@ const contentContainer = document.getElementById('contentContainer');
 const feedContainer = document.getElementById('feedContainer');
 const contentToggleButton = document.getElementById('contentToggleButton');
 const themeToggle = document.getElementById('themeToggleButton');
+const visibilityToggle = document.getElementById('visibilityToggleButton');
 
 contentToggleButton?.addEventListener('click', () => hideStory());
 themeToggle?.addEventListener('click', () => toggleTheme());
+visibilityToggle?.addEventListener('click', () => {
+  if (!contentContainer || !feedContainer) {
+    return;
+  }
+  contentContainer.classList.toggle('hidden');
+  feedContainer.classList.toggle('hidden');
+});
 
 toggleTheme();
 fetchFeed();
@@ -46,7 +55,9 @@ function fetchFeed() {
 }
 
 function displayFeed(xmlDoc: Document) {
-  if (!feedContainer) return;
+  if (!feedContainer) {
+    return;
+  }
 
   feedContainer.innerHTML = '';
 

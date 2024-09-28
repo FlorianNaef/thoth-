@@ -31,7 +31,10 @@
   --themeIcon: url(assets/sun.png); /* Icon */
 }
 
-/* Light mode styles */
+.hidden {
+  visibility: hidden;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: var(--background);
