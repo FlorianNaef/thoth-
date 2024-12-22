@@ -40,9 +40,9 @@ toggleTheme();
 fetchFeed();
 
 function fetchFeed() {
-  const feedUrl = 'https://rss.dw.com/rdf/rss-de-all';
+  const feedUrl = 'https://rss.dw.com/xml/rss-de-all';
 
-  fetch(`https://corsproxy.io/?${encodeURIComponent(feedUrl)}`)
+  fetch(`https://thingproxy.freeboard.io/fetch/${feedUrl}`)
     .then((response) => response.text())
     .then((data) => {
       const parser = new DOMParser();
@@ -77,7 +77,6 @@ function displayFeed(xmlDoc: Document) {
     feedItem.innerHTML = `
             <h3>${title}</h3>
             <p>${description}</p>
-            <hr>
         `;
 
     if (isDarkmodeEnabled) {
